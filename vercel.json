@@ -11,11 +11,5 @@
       "src": "/(.*)",
       "dest": "/$1"
     }
-  ],
-  "crons": [
-    {
-      "path": "/api/supabase",
-      "schedule": "0 */6 * * *"
-    }
   ]
 }
