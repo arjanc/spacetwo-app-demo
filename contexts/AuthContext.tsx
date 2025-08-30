@@ -199,8 +199,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     try {
       // Get the current URL to redirect back after sign in
-      const redirectAfterSignIn = window.location.pathname !== '/login' 
-        ? window.location.pathname + window.location.search
+      const currentUrl = new URL(window.location.href);
+      const redirectAfterSignIn = currentUrl.pathname !== '/login' 
+        ? currentUrl.pathname + currentUrl.search
         : '/';
       
       const { error } = await supabase.auth.signInWithOAuth({
